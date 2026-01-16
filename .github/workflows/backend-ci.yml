@@ -40,6 +40,7 @@ jobs:
         run: uv run ruff format --check
 
 
+
       # TODO 3: Add a step to run the Ruff linter
       # Step name: "Run linter"
       # Command: uv run ruff check .
