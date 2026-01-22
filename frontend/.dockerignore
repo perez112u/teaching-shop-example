@@ -1,0 +1,20 @@
+dist
+node_modules
+
+# Virtual environment
+.venv/
+venv/
+
+
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Tests and docs (optional, keep if you want to run tests in container)
+# tests/
+# docs/
