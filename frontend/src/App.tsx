@@ -8,6 +8,7 @@ import OrderConfirmationPage from'./orders/order/page';
 import MyOrdersPage from'./orders/page';
 import AdminOrdersPage from './admin/orders/page';
 
+// modif
 export default function App() {
   return (
     <BrowserRouter>
