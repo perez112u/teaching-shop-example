@@ -34,16 +34,16 @@ jobs:
           tags: ghcr.io/${{ github.repository }}/boutique-frontend:latest
 
   deploy:
-    needs: build-and-push # Ce job ne commence que si le build est réussi
+    needs: build-and-push 
     runs-on: ubuntu-latest
     
     steps:
       - name: Deploy to Server via SSH
-        uses: appleboy/ssh-action@v1.0.3 # Utilise l'action SSH pour la connexion
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.SERVER_HOST }} # Adresse IP du serveur
-          username: ${{ secrets.SERVER_USER }} # Utilisateur admin
-          key: ${{ secrets.SSH_PRIVATE_KEY }} # Ta clé privée id_rsa_github
+          host: ${{ secrets.SERVER_HOST }} 
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             # 1. Se connecter au registre pour accéder aux images privées
             echo "${{ secrets.GHCR_TOKEN_READ }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -57,5 +57,5 @@ jobs:
             docker rm boutique-back boutique-front || true
 
             # 4. Lancer les nouveaux conteneurs
-            docker run -d --name boutique-back -p 8000:8000 ghcr.io/${{ github.repository }}/boutique-backend:latest
+            docker run -d --name boutique-back -p 5000:5000 ghcr.io/${{ github.repository }}/boutique-backend:latest
             docker run -d --name boutique-front -p 80:80 ghcr.io/${{ github.repository }}/boutique-frontend:latest
