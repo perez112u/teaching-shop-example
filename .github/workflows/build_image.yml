@@ -57,5 +57,5 @@ jobs:
             docker rm boutique-back boutique-front || true
 
             # 4. Lancer les nouveaux conteneurs
-            docker run -d --name boutique-back -p 5000:5000 ghcr.io/${{ github.repository }}/boutique-backend:latest
+            docker run -d --name boutique-back -p 8000:8000 ghcr.io/${{ github.repository }}/boutique-backend:latest
             docker run -d --name boutique-front -p 80:80 ghcr.io/${{ github.repository }}/boutique-frontend:latest
