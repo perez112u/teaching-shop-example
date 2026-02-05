@@ -24,11 +24,11 @@ jobs:
           context: ./backend
           ## dans ghcr
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/boutique-backend:latest
+          tags: ghcr.io/${{ github.repository }}/boutique-backend:latest
 
       - name: Build and push Frontend
         uses: docker/build-push-action@v5
         with:
           context: ./frontend
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/boutique-frontend:latest
+          tags: ghcr.io/${{ github.repository }}/boutique-frontend:latest
