@@ -1,5 +1,4 @@
-const API_BASE = 'http://localhost:8000/api';
-
+import { API_BASE_URL } from './env'; // Vérifie bien le chemin vers ton fichier env.ts
 interface User {
   id: number;
   username: string;
@@ -17,7 +16,7 @@ interface AuthError {
 }
 
 export async function login(username: string, password: string): Promise<AuthResponse> {
-  const response = await fetch(`${API_BASE}/auth/login/`, {
+  const response = await fetch(`${API_BASE_URL}auth/login/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -35,7 +34,7 @@ export async function login(username: string, password: string): Promise<AuthRes
 }
 
 export async function register(username: string, email: string, password: string): Promise<AuthResponse> {
-  const response = await fetch(`${API_BASE}/auth/register/`, {
+  const response = await fetch(`${API_BASE_URL}/auth/register/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -53,7 +52,7 @@ export async function register(username: string, email: string, password: string
 }
 
 export async function getMe(token: string): Promise<User> {
-  const response = await fetch(`${API_BASE}/auth/me/`, {
+  const response = await fetch(`${API_BASE_URL}/auth/me/`, {
     headers: {
       'Authorization': `Token ${token}`,
     },

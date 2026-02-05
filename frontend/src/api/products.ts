@@ -1,3 +1,5 @@
+import { API_BASE_URL } from './env'; // Vérifie bien le chemin vers ton fichier env.ts
+
 export interface Product {
   id: number;
   name: string;
@@ -34,7 +36,7 @@ export async function fetchProducts(): Promise<Product[]> {
   //     description: "La savane illustre parfaitement la jungle créative de votre bébé !",
   //     imageUrl: "/bavoir3.jpg"
   // }];
-  const response = await fetch("http://localhost:8000/api/products/").then(
+  const response = await fetch(`${API_BASE_URL}products/`).then(
     (res) =>
       res.json().then((data) =>
         data.map((p: RawProduct) => ({

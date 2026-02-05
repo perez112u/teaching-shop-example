@@ -1,5 +1,4 @@
-const API_BASE = 'http://localhost:8000/api';
-
+import { API_BASE_URL } from './env'; // Vérifie bien le chemin vers ton fichier env.ts
 export interface Order {
   id: number;
   product: number;
@@ -23,7 +22,7 @@ export async function createOrder(
   productId: number,
   cardNumber: string
 ): Promise<CreateOrderResponse> {
-  const response = await fetch(`${API_BASE}/orders/`, {
+  const response = await fetch(`${API_BASE_URL}/orders/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -45,7 +44,7 @@ export async function createOrder(
 }
 
 export async function getOrders(token: string): Promise<Order[]> {
-  const response = await fetch(`${API_BASE}/orders/`, {
+  const response = await fetch(`${API_BASE_URL}/orders/`, {
     headers: {
       'Authorization': `Token ${token}`,
     },
@@ -59,7 +58,7 @@ export async function getOrders(token: string): Promise<Order[]> {
 }
 
 export async function getOrder(token: string, orderId: number): Promise<Order> {
-  const response = await fetch(`${API_BASE}/orders/${orderId}/`, {
+  const response = await fetch(`${API_BASE_URL}/orders/${orderId}/`, {
     headers: {
       'Authorization': `Token ${token}`,
     },
@@ -79,7 +78,7 @@ export interface AdminOrder extends Order {
 }
 
 export async function getAdminOrders(token: string): Promise<AdminOrder[]> {
-  const response = await fetch(`${API_BASE}/admin/orders/`, {
+  const response = await fetch(`${API_BASE_URL}/admin/orders/`, {
     headers: {
       'Authorization': `Token ${token}`,
     },
