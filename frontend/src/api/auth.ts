@@ -1,4 +1,4 @@
-import { API_BASE_URL } from './env'; // Vérifie bien le chemin vers ton fichier env.ts
+import { API_BASE_URL } from '../env'; // Vérifie bien le chemin vers ton fichier env.ts
 interface User {
   id: number;
   username: string;

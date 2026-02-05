@@ -1,4 +1,4 @@
-import { API_BASE_URL } from './env'; // Vérifie bien le chemin vers ton fichier env.ts
+import { API_BASE_URL } from '../env'; // Vérifie bien le chemin vers ton fichier env.ts
 export interface Order {
   id: number;
   product: number;
